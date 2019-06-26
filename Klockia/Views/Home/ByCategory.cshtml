@@ -1,0 +1,45 @@
+﻿@model List<Klockia.Models.Product>
+
+@{
+    ViewBag.Title = "ByCategory";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card col-md-3 col-sm-6">
+        <div class="imageContainer">
+            <img src="@item.ImageUrl" alt="Bild" />
+        </div>
+        <div class="container">
+            <h4><b>@item.Name</b></h4>
+            <h4><b>@item.Price</b></h4>
+            <h4><b>@item.Brand</b></h4>
+
+        </div>
+        <button type="button" id="@item.Id" class="productContainer btn btn-default">Lägg till</button>
+
+
+    </div>
+}
+
+@using (Html.BeginForm("Checkout", "Home"))
+{
+    <input type="hidden" id="hiddenCart" name="cart" />
+
+    //"submit" =  sparar saker i knappen
+    <button type="submit" class="btn btn-default">Checkout</button>
+}
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+  
